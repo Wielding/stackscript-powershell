@@ -14,7 +14,7 @@ exec 6>&1
 exec 5>&2
 
 # Redirect stdout and stderr to a file
-exec > /root/StackScript.out
+exec > ./StackScript.out
 exec 2>&1
 
 install_packages () {
