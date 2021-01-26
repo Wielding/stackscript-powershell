@@ -42,7 +42,7 @@ install_powershell() {
 }
 
 configure_ssh() {
-    mkdir .ssh
+    mkdir -p ~/.ssh 
     echo $PUB_KEY > ~/.ssh/authorized_keys
     SSHD_FILE=/etc/ssh/sshd_config
     sudo cp $SSHD_FILE ${SSHD_FILE}.`date '+%Y-%m-%d_%H-%M-%S'`.back
@@ -71,6 +71,9 @@ if [ -f /etc/apt/sources.list ]; then
     install_packages
     install_powershell
     configure_ssh    
+    pwsh -Command "& {\$ProgressPreference = 'SilentlyContinue'; Install-Module WieldingStackScript -AllowPrerelease -Force}"
+    echo ""
+    pwsh -Command "& {Import-Module WieldingStackScript; Get-MachineInfo}"
 else
     echo "Your distribution is not supported by this script"
     exit

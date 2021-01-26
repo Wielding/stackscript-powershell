@@ -27,5 +27,16 @@
 	// "postCreateCommand": "uname -a",
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
-	"remoteEnv": {"PUB_KEY": "dummy", "SSHD_PORT": "22001" }
+	// Supply some dummy environment veriables including values automatically
+	// provided by the linode stackscript system
+	"remoteEnv": {
+		"LINODE_ID": "LINODE-1",
+		"LINODE_LISHUSERNAME": "LISHNAME",
+		"LINODE_RAM": "4096",
+		"LINODE_DATACENTERID": "us-east",
+		"HOSTNAME" : "local.dev",
+		"PUB_KEY": "dummy",
+		"SSHD_PORT": "22001",
+
+	}
 }
